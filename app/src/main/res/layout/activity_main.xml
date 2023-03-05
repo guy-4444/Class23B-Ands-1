@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    app:divider="@color/purple_500"
+    app:showDividers="middle|beginning|end"
+    android:padding="32dp"
+    android:keepScreenOn="true">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_BTN_readPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cornerRadius="50dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:strokeColor="@color/purple_500"
+        android:text="Contacts Permission"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_BTN_readContacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cornerRadius="50dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:strokeColor="@color/purple_500"
+        android:text="Read Contacts"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_LBL_contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:layout_marginTop="16dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
