@@ -1,5 +1,6 @@
 package com.guy.class23b_and_1;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -7,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -64,8 +66,24 @@ public class MainActivity extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     readContacts();
                 } else {
-                    
-                    request();
+                    boolean showMsg = shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS);
+                    if (showMsg) {
+                        // Second time
+                        new AlertDialog.Builder(MainActivity.this)
+                                .setTitle("Delete entry")
+                                .setMessage("Are you sure you want to delete this entry?")
+
+                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                .setPositiveButton("Got it", (dialog, which) -> request())
+                                .setNegativeButton("No", (dialog, which) -> {
+                                    //
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+                    } else {
+                        // Manually grant permissions.
+                    }
                 }
                 break;
             default:
